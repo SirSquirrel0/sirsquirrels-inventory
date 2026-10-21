@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1116">
+<title>SirSquirrel's Inventory — Weapons & Ship Components</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1116;--surface:#131c23;--surface2:#19252e;--primary:#173c42;--accent:#56d6c4;--ink:#edf3f4;--muted:#9eafb6;--line:#2a3943;--warn:#f0b85d;--danger:#e16d76;--ok:#50d49a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.wrap{max-width:1200px;margin:auto;padding:24px}.topbar{background:var(--primary);border-bottom:1px solid #ffffff22}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:.04em}.mark{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--accent);color:var(--accent);font-weight:900;transform:skew(-8deg)}.nav-actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:var(--surface2);color:var(--ink);padding:10px 14px;border-radius:9px;font-weight:700}.btn.primary{background:var(--accent);color:#061216;border-color:var(--accent)}.btn.ghost{background:transparent;color:inherit;border-color:#ffffff55}.btn.danger{border-color:#713a42;color:#ffb9bf}.btn:disabled{opacity:.55;cursor:not-allowed}.hero{padding:46px 0 30px;display:grid;grid-template-columns:1.4fr .6fr;gap:24px;align-items:end}.eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--accent)}h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.03;letter-spacing:-.05em;margin:12px 0}p{line-height:1.65}.hero p{max-width:680px;color:#b8c8cd}.hero-stat{background:var(--surface2);border:1px solid #ffffff20;padding:20px;border-radius:14px}.stat-number{font-size:2rem;font-weight:850;color:var(--accent)}.stat-label{font-size:.85rem;color:#b8c8cd}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:20px 0}.section-head h2{font-size:1.25rem;margin:3px 0}.muted{color:var(--muted)}.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:12px 0 22px}.search,.field{min-width:0;width:100%;padding:11px 12px;border-radius:8px;border:1px solid var(--line);background:#0e171d;color:var(--ink)}.search{flex:1;min-width:220px}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{padding:9px 12px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--ink);font-weight:650}.filter.active{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.product{overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;min-width:0}.product-art{height:125px;background:linear-gradient(135deg,#1c3038,#111a21);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.product-art:before{content:"";position:absolute;width:190px;height:190px;border:1px solid #ffffff19;transform:rotate(35deg)}.product-art span{font-size:2rem;color:var(--accent);font-weight:900;letter-spacing:.1em;text-shadow:0 0 30px #56d6c455}.product-art img{width:100%;height:100%;object-fit:contain;position:relative;background:#101920}.product-body{padding:16px;display:flex;flex-direction:column;gap:10px;flex:1}.tag{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:800}.product h3{margin:0;font-size:1.05rem}.desc{font-size:.88rem;color:var(--muted);margin:0;min-height:40px}.price-row,.stockline{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.price-row{margin-top:auto;padding-top:4px}.price{font-size:1.05rem;font-weight:850}.stock{font-size:.76rem;font-weight:800}.stock.available{color:var(--ok)}.stock.hold{color:var(--warn)}.stock.out{color:var(--danger)}.stockline{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}.holdline{color:var(--warn);font-weight:750}.notice{margin-top:24px;padding:14px 16px;border:1px solid #56d6c455;border-radius:10px;color:var(--muted);font-size:.84rem}.notice strong{color:var(--accent)}.footer{border-top:1px solid #ffffff20;margin-top:44px;color:#91a3aa;font-size:.8rem}.panel{display:none;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;margin:24px 0}.panel.open{display:block}.panel h2{margin:4px 0 10px}.panel-top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.admin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}.metric{padding:14px;background:var(--surface2);border-radius:10px}.metric strong{font-size:1.4rem;display:block}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field-wrap{display:flex;flex-direction:column;gap:5px}.field-wrap label{font-size:.83rem;color:var(--muted);font-weight:700}.field-wrap.full{grid-column:1/-1}.field-wrap textarea{min-height:80px;resize:vertical}.checkbox-row{display:flex;align-items:center;gap:8px}.table-wrap{overflow:auto;margin-top:18px}table{width:100%;border-collapse:collapse;font-size:.86rem;min-width:760px}th,td{text-align:left;padding:11px 8px;border-bottom:1px solid var(--line);vertical-align:middle}th{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em}td .btn{padding:6px 9px;font-size:.78rem}.status-pill{font-size:.72rem;padding:3px 7px;border-radius:99px;background:#243b35;color:var(--ok)}.status-pill.hidden{background:#39272b;color:#ffb9bf}.message{margin:12px 0;color:var(--accent);font-size:.9rem}.error{color:#ffb9bf}.empty{grid-column:1/-1;padding:40px;text-align:center;border:1px dashed var(--line);border-radius:12px;color:var(--muted)}.small{font-size:.82rem}.hidden{display:none!important}.login-card{max-width:520px;padding:16px;background:var(--surface2);border-radius:12px;margin-top:16px}.login-card .form-grid{grid-template-columns:1fr}.hr{height:1px;background:var(--line);margin:20px 0}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}.hero-stat{max-width:360px}}@media(max-width:560px){.wrap{padding:17px}.grid{grid-template-columns:1fr}.admin-grid,.form-grid{grid-template-columns:1fr}.field-wrap.full{grid-column:auto}.hero{padding-top:32px}.nav{align-items:flex-start}.brand{font-size:.9rem}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap nav">
+  <div class="brand"><div class="mark">SS</div><div>SirSquirrel's Inventory <span style="opacity:.65;font-weight:500">/ WEAPONS</span></div></div>
+  <div class="nav-actions"><button class="btn ghost" id="adminToggle">Inventory manager ↗</button><button class="btn primary" id="browseBtn">Browse stock</button></div>
+</div></header>
+<main class="wrap">
+  <section class="hero"><div><div class="eyebrow">Independent inventory · Stanton system</div><h1>Weapons & Ship Components</h1><p>Browse current ship weapons, power plants, shields, coolers, quantum drives, and other components. Check available stock and items currently on hold. All purchases and orders are handled through UEX.</p></div>
+    <div class="hero-stat"><div class="stat-number" id="availableTotal">—</div><div class="stat-label">units currently available</div><div style="height:12px"></div><div class="stat-number" id="heldTotal">—</div><div class="stat-label">units currently on hold</div></div>
+  </section>
+  <section id="catalog"><div class="section-head"><div><div class="eyebrow">Live catalog</div><h2>Current listings</h2></div><span class="muted" id="resultCount">Connecting…</span></div>
+    <div class="toolbar"><input id="search" class="search" placeholder="Search items, manufacturers, or details…" aria-label="Search inventory"><div class="filters"><button class="filter active" data-filter="all">All listings</button><button class="filter" data-filter="available">Available</button><button class="filter" data-filter="hold">On hold</button><button class="filter" data-filter="out">Out of stock</button></div></div>
+    <div class="grid" id="products"><div class="empty">Connecting to inventory…</div></div>
+  </section>
+  <section class="panel" id="adminPanel">
+    <div class="panel-top"><div><div class="eyebrow">Restricted area</div><h2>Inventory manager</h2><div class="muted small">Sign in with the administrator account you created in Supabase.</div></div><button class="btn" id="closeAdmin">Close manager</button></div>
+    <div id="loginCard" class="login-card"><h3>Administrator sign-in</h3><form id="loginForm" class="form-grid"><div class="field-wrap"><label for="loginEmail">Email</label><input class="field" id="loginEmail" type="email" autocomplete="username" required></div><div class="field-wrap"><label for="loginPassword">Password</label><input class="field" id="loginPassword" type="password" autocomplete="current-password" required></div><div><button class="btn primary" type="submit">Sign in</button></div></form><div class="message" id="loginMessage" aria-live="polite"></div></div>
+    <div id="adminContent" class="hidden">
+      <div class="panel-top"><p class="small muted">Signed in as <strong id="adminEmail"></strong>. Changes save to the shared database.</p><button class="btn" id="signOutBtn">Sign out</button></div>
+      <div class="admin-grid"><div class="metric"><span class="muted">Listed + hidden units</span><strong id="adminTotal">0</strong></div><div class="metric"><span class="muted">Available units</span><strong id="adminAvailable">0</strong></div><div class="metric"><span class="muted">On hold</span><strong id="adminHeld">0</strong></div></div>
+      <div class="hr"></div><h3 id="formHeading">Add inventory listing</h3>
+      <form id="itemForm" class="form-grid">
+        <input id="itemId" type="hidden">
+        <div class="field-wrap"><label for="itemName">Item name *</label><input class="field" id="itemName" required maxlength="160"></div>
+        <div class="field-wrap"><label for="itemManufacturer">Manufacturer</label><input class="field" id="itemManufacturer" maxlength="120"></div>
+        <div class="field-wrap"><label for="itemCategory">Category *</label><select class="field" id="itemCategory" required><option>Ship weapon</option><option>Shield generator</option><option>Power plant</option><option>Cooler</option><option>Quantum drive</option><option>Missile</option><option>Turret</option><option>Other component</option></select></div>
+        <div class="field-wrap"><label for="itemSubcategory">Subcategory / size / grade</label><input class="field" id="itemSubcategory" maxlength="120"></div>
+        <div class="field-wrap"><label for="itemPrice">Price (numeric) *</label><input class="field" id="itemPrice" type="number" min="0" step="0.01" required value="0"></div>
+        <div class="field-wrap"><label for="itemCurrency">Currency</label><select class="field" id="itemCurrency"><option value="UEC">UEC</option><option value="aUEC">aUEC</option></select></div>
+        <div class="field-wrap"><label for="itemAvailable">Available quantity *</label><input class="field" id="itemAvailable" type="number" min="0" step="1" required value="0"></div>
+        <div class="field-wrap"><label for="itemHold">On-hold quantity *</label><input class="field" id="itemHold" type="number" min="0" step="1" required value="0"></div>
+        <div class="field-wrap full"><label for="itemDescription">Description</label><textarea class="field" id="itemDescription" maxlength="1500"></textarea></div>
+        <div class="field-wrap full"><label for="itemImage">Image URL (optional)</label><input class="field" id="itemImage" type="url" placeholder="https://…"></div>
+        <div class="field-wrap full"><label class="checkbox-row"><input id="itemListed" type="checkbox" checked> Listing is visible to public visitors</label></div>
+        <div class="field-wrap full" style="display:flex;flex-direction:row;gap:8px;flex-wrap:wrap"><button class="btn primary" type="submit" id="saveItemBtn">Save listing</button><button class="btn" type="button" id="resetFormBtn">Clear form</button></div>
+      </form>
+      <div class="message" id="itemMessage" aria-live="polite"></div>
+      <div class="table-wrap"><table><thead><tr><th>Item</th><th>Price</th><th>Available</th><th>On hold</th><th>Visibility</th><th>Actions</th></tr></thead><tbody id="adminRows"></tbody></table></div>
+    </div>
+  </section>
+  <div class="notice"><strong>Ordering information</strong> · This website displays inventory only. No orders or hold requests are accepted here. Please arrange purchases through UEX. Availability can change; confirm listing details before trading.</div>
+</main>
+<footer class="footer"><div class="wrap nav"><span>SirSquirrel's Inventory · Star Citizen stock display</span><span>Unofficial community inventory · Not affiliated with Cloud Imperium Games</span></div></footer>
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+// Add your Supabase Project URL and publishable key below.
+// These are public browser settings. Never put a service_role or secret key in this file.
+const SUPABASE_URL = 'https://hodkmwnkgfmldijskcfo.supabase.co/rest/v1/';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_ZfDwEIBFv1ygDrmMBmesMA_MXIFEd-l';
+
+const $ = (id) => document.getElementById(id);
+const configured = SUPABASE_URL.startsWith('https://') &&
+  !SUPABASE_URL.includes('PASTE_YOUR') &&
+  SUPABASE_PUBLISHABLE_KEY &&
+  !SUPABASE_PUBLISHABLE_KEY.includes('PASTE_YOUR');
+let supabase = null;
+let products = [];
+let activeFilter = 'all';
+let searchText = '';
+const number = n => new Intl.NumberFormat('en-US').format(Number(n || 0));
+const priceText = p => `${number(p.price)} ${p.currency || 'UEC'}`;
+const stockType = p => Number(p.available_quantity)>0 ? 'available' : Number(p.hold_quantity)>0 ? 'hold' : 'out';
+const safeText = value => String(value ?? '');
+function el(tag, cls, text) {
+  const node = document.createElement(tag);
+  if (cls) node.className = cls;
+  if (text !== undefined) node.textContent = text;
+  return node;
+}
+function message(id, text, error=false) {
+  $(id).textContent = text;
+  $(id).classList.toggle('error', error);
+}
+function totals() {
+  const available = products.reduce((s,p)=>s+Number(p.available_quantity||0),0);
+  const held = products.reduce((s,p)=>s+Number(p.hold_quantity||0),0);
+  $('availableTotal').textContent = number(available);
+  $('heldTotal').textContent = number(held);
+  $('adminAvailable').textContent = number(available);
+  $('adminHeld').textContent = number(held);
+  $('adminTotal').textContent = number(products.reduce((s,p)=>s+Number(p.available_quantity||0)+Number(p.hold_quantity||0),0));
+}
+function renderCatalog() {
+  totals();
+  const filtered = products.filter(p => {
+    const status = stockType(p);
+    return (activeFilter==='all' || activeFilter===status) &&
+      `${p.name} ${p.manufacturer||''} ${p.category||''} ${p.subcategory||''} ${p.description||''}`.toLowerCase().includes(searchText);
+  });
+  $('resultCount').textContent = `${filtered.length} listing${filtered.length===1?'':'s'}`;
+  const root = $('products'); root.replaceChildren();
+  if (!filtered.length) {
+    root.append(el('div','empty',products.length ? 'No listings match your search.' : 'No public listings are available right now.'));
+    return;
+  }
+  for (const p of filtered) {
+    const card = el('article','product');
+    const art = el('div','product-art');
+    if (p.image_url && /^https?:\/\//i.test(p.image_url)) {
+      const img = el('img'); img.src = p.image_url; img.alt = p.name; img.loading = 'lazy';
+      img.onerror = () => { img.remove(); art.append(el('span','',safeText(p.name).slice(0,10).toUpperCase())); };
+      art.append(img);
+    } else art.append(el('span','',safeText(p.name).replace(/[^a-z0-9]/gi,'').slice(0,10).toUpperCase() || 'SS'));
+    const body = el('div','product-body');
+    body.append(el('div','tag',`${p.category||'Component'}${p.manufacturer ? ' · '+p.manufacturer : ''}${p.subcategory ? ' · '+p.subcategory : ''}`));
+    body.append(el('h3','',p.name));
+    body.append(el('p','desc',p.description || 'Contact through UEX to confirm compatibility and listing details.'));
+    const pr = el('div','price-row'); pr.append(el('span','price',priceText(p)));
+    const s = stockType(p); pr.append(el('span',`stock ${s}`,s==='available'?'IN STOCK':s==='hold'?'ON HOLD':'OUT OF STOCK'));
+    body.append(pr);
+    const line = el('div','stockline');
+    line.append(el('span','',`Available: ${number(p.available_quantity)}`));
+    line.append(el('span','holdline',`Held: ${number(p.hold_quantity)}`));
+    body.append(line); card.append(art,body); root.append(card);
+  }
+}
+function renderAdminRows() {
+  const root = $('adminRows'); root.replaceChildren();
+  for (const p of products) {
+    const tr = document.createElement('tr');
+    const item = el('td'); item.append(el('strong','',p.name));
+    if (p.manufacturer) item.append(el('div','muted small',p.manufacturer));
+    const price = el('td','',priceText(p));
+    const available = el('td','',number(p.available_quantity));
+    const held = el('td','',number(p.hold_quantity));
+    const status = el('td'); status.append(el('span',`status-pill ${p.is_listed?'':'hidden'}`,p.is_listed?'Listed':'Hidden'));
+    const actions = el('td');
+    const edit = el('button','btn','Edit'); edit.type='button'; edit.addEventListener('click',()=>fillForm(p));
+    const del = el('button','btn danger','Delete'); del.type='button'; del.style.marginLeft='6px'; del.addEventListener('click',()=>deleteItem(p));
+    actions.append(edit,del); tr.append(item,price,available,held,status,actions); root.append(tr);
+  }
+}
+function renderAll() { renderCatalog(); if (!$('adminContent').classList.contains('hidden')) renderAdminRows(); }
+async function loadPublic() {
+  const {data,error} = await supabase.from('inventory')
+    .select('id,name,manufacturer,category,subcategory,description,price,currency,available_quantity,hold_quantity,image_url,is_listed')
+    .eq('is_listed',true).order('name');
+  if (error) {
+    $('products').replaceChildren(el('div','empty','Could not load inventory. Confirm the Supabase URL/key and database policies, then reload.'));
+    $('resultCount').textContent='Connection issue';
+    console.error(error); return;
+  }
+  products = data || []; renderAll();
+}
+async function loadAdmin() {
+  const {data:{session}} = await supabase.auth.getSession();
+  const signedIn = Boolean(session);
+  $('loginCard').classList.toggle('hidden',signedIn);
+  $('adminContent').classList.toggle('hidden',!signedIn);
+  if (!signedIn) return;
+  $('adminEmail').textContent = session.user.email || 'Administrator';
+  const {data,error} = await supabase.from('inventory')
+    .select('id,name,manufacturer,category,subcategory,description,price,currency,available_quantity,hold_quantity,image_url,is_listed,created_at,updated_at')
+    .order('name');
+  if (error) { message('itemMessage','Could not load manager inventory. Check your admin UUID and RLS policies.',true); console.error(error); return; }
+  products = data || []; renderAll(); renderAdminRows();
+}
+function resetForm() {
+  $('itemForm').reset(); $('itemId').value=''; $('itemPrice').value='0'; $('itemAvailable').value='0'; $('itemHold').value='0'; $('itemListed').checked=true;
+  $('formHeading').textContent='Add inventory listing'; $('saveItemBtn').textContent='Save listing';
+}
+function fillForm(p) {
+  $('itemId').value=p.id; $('itemName').value=p.name||''; $('itemManufacturer').value=p.manufacturer||'';
+  $('itemCategory').value=p.category||'Other component'; $('itemSubcategory').value=p.subcategory||'';
+  $('itemPrice').value=p.price??0; $('itemCurrency').value=p.currency||'UEC';
+  $('itemAvailable').value=p.available_quantity??0; $('itemHold').value=p.hold_quantity??0;
+  $('itemDescription').value=p.description||''; $('itemImage').value=p.image_url||''; $('itemListed').checked=Boolean(p.is_listed);
+  $('formHeading').textContent='Edit inventory listing'; $('saveItemBtn').textContent='Update listing';
+  $('itemForm').scrollIntoView({behavior:'smooth',block:'start'});
+}
+async function deleteItem(p) {
+  if (!confirm(`Delete "${p.name}" from the inventory database? This cannot be undone.`)) return;
+  const {error} = await supabase.from('inventory').delete().eq('id',p.id);
+  if (error) { message('itemMessage',`Delete failed: ${error.message}`,true); return; }
+  message('itemMessage',`Deleted "${p.name}".`); await loadAdmin(); await loadPublic();
+}
+$('itemForm').addEventListener('submit',async e=>{
+  e.preventDefault(); message('itemMessage','Saving…');
+  const price = Number($('itemPrice').value), available = Number($('itemAvailable').value), hold = Number($('itemHold').value);
+  if (![price,available,hold].every(Number.isFinite) || price<0 || available<0 || hold<0 || !Number.isInteger(available) || !Number.isInteger(hold)) {
+    message('itemMessage','Price must be non-negative; quantities must be whole numbers of zero or greater.',true); return;
+  }
+  const image = $('itemImage').value.trim();
+  if (image && !/^https?:\/\//i.test(image)) { message('itemMessage','Image URL must begin with http:// or https://.',true); return; }
+  const record = {name:$('itemName').value.trim(),manufacturer:$('itemManufacturer').value.trim()||null,category:$('itemCategory').value,subcategory:$('itemSubcategory').value.trim()||null,description:$('itemDescription').value.trim()||null,price,currency:$('itemCurrency').value,available_quantity:available,hold_quantity:hold,image_url:image||null,is_listed:$('itemListed').checked,updated_at:new Date().toISOString()};
+  const id = $('itemId').value;
+  const result = id ? await supabase.from('inventory').update(record).eq('id',id) : await supabase.from('inventory').insert(record);
+  if (result.error) { message('itemMessage',`Save failed: ${result.error.message}`,true); return; }
+  message('itemMessage',id?'Listing updated successfully.':'Listing added successfully.');
+  resetForm(); await loadAdmin(); await loadPublic();
+});
+$('resetFormBtn').addEventListener('click',resetForm);
+$('loginForm').addEventListener('submit',async e=>{
+  e.preventDefault(); message('loginMessage','Signing in…');
+  const {error} = await supabase.auth.signInWithPassword({email:$('loginEmail').value.trim(),password:$('loginPassword').value});
+  if (error) { message('loginMessage',`Sign-in failed: ${error.message}`,true); return; }
+  $('loginPassword').value=''; message('loginMessage','Signed in.'); await loadAdmin();
+});
+$('signOutBtn').addEventListener('click',async()=>{
+  const {error} = await supabase.auth.signOut();
+  if (error) { message('itemMessage',error.message,true); return; }
+  resetForm(); await loadAdmin(); await loadPublic();
+});
+$('adminToggle').addEventListener('click',()=>{$('adminPanel').classList.toggle('open');$('adminPanel').scrollIntoView({behavior:'smooth',block:'start'});});
+$('closeAdmin').addEventListener('click',()=>$('adminPanel').classList.remove('open'));
+$('browseBtn').addEventListener('click',()=>$('catalog').scrollIntoView({behavior:'smooth'}));
+$('search').addEventListener('input',e=>{searchText=e.target.value.toLowerCase().trim();renderCatalog();});
+document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active')); b.classList.add('active'); activeFilter=b.dataset.filter; renderCatalog();
+}));
+
+if (!configured) {
+  $('resultCount').textContent='Setup required';
+  $('products').replaceChildren(el('div','empty','The website files are ready, but your Supabase Project URL and publishable key still need to be added in index.html.'));
+  $('adminToggle').addEventListener('click',()=>{$('adminPanel').classList.add('open');$('adminPanel').scrollIntoView({behavior:'smooth'});});
+} else {
+  supabase = createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+  await loadPublic();
+  await loadAdmin();
+  supabase.auth.onAuthStateChange((_event,_session)=>{setTimeout(()=>loadAdmin(),0);});
+  // Refresh public inventory periodically while this page remains open.
+  setInterval(()=>loadPublic(),60000);
+}
+</script>
+</body>
+</html>
